@@ -1,0 +1,70 @@
+###
+GET http://127.0.0.1:8000/api/v1/payments
+
+###
+POST http://127.0.0.1:8000/api/v1/payments
+content-type: application/json
+
+{
+  "foreign_id": 4726,
+  "currency": "BTC",
+  "convert_to": "USD",
+  "current_domain": "https://tytfree.online/api/v1/payments"
+}
+
+
+###
+POST http://127.0.0.1:8000/api/v1/callback-alphapo
+content-type: application/json
+
+
+ {
+  "id": 29115847,
+  "type": "deposit_exchange",
+  "crypto_address": {
+    "id": 49447910,
+    "currency": "USDTT",
+    "convert_to": "USD",
+    "address": "TP8WMgnTXsX9GMzbvUuKe6vv9YGRqV7T7Z",
+    "tag": null,
+    "foreign_id": "4726"
+  },
+  "currency_sent": { "currency": "USDTT", "amount": "7.00000000" },
+  "currency_received": {
+    "currency": "USD",
+    "amount": "6.97755623",
+    "amount_minus_fee": "5.68720590"
+  },
+  "transactions": [
+    {
+      "id": 34498142,
+      "currency": "USDTT",
+      "transaction_type": "blockchain",
+      "type": "deposit",
+      "address": "TP8WMgnTXsX9GMzbvUuKe6vv9YGRqV7T7Z",
+      "tag": null,
+      "amount": "7.00000000",
+      "txid": "24f84cc684101a065a3f4d48c552223bc1eda9dd34d9e2e980384c454c032951",
+      "riskscore": null,
+      "confirmations": "21"
+    },
+    {
+      "id": 34498143,
+      "currency": "USDTT",
+      "currency_to": "USD",
+      "transaction_type": "exchange",
+      "type": "exchange",
+      "amount": "7.00000000",
+      "amount_to": "6.97755623"
+    }
+  ],
+  "fees": [
+    {
+      "type": "fee_crypto_deposit_to_fiat",
+      "currency": "USD",
+      "amount": "1.29035033"
+    }
+  ],
+  "error": "",
+  "status": "confirmed"
+}
